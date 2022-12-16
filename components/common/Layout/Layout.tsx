@@ -1,11 +1,16 @@
 import { FC, ReactNode } from 'react';
+import s from './Layout.module.css';
 
 interface Props {
   children?: ReactNode;
 }
 
 const Layout: FC<Props> = ({ children }) => {
-  return <div className='bg-blue-500'>{children}</div>;
+  return (
+    <>
+      <main className={s.root}>{children}</main>;
+    </>
+  );
 };
 
 export default Layout;
