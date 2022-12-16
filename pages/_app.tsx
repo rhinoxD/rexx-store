@@ -1,13 +1,16 @@
 import { AppProps } from 'next/app';
-import { Layout } from '@components/common';
+import { FC } from 'react';
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({
+  Component,
+  pageProps,
+}: AppProps & { Component: { Layout: FC } }) => {
+  const Layout = Component.Layout;
+
   return (
-    <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 };
 
