@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Layout: FC<Props> = ({ children }) => {
-  return <div className='layout'>{children}</div>;
+  return <div className='bg-blue-500'>{children}</div>;
 };
 
 export default Layout;
