@@ -8,7 +8,7 @@ interface Props {
 const Layout: FC<Props> = ({ children }) => {
   return (
     <div className={s.root}>
-      <main className='fit'>{children}</main>;
+      <main className='fit'>{children}</main>
     </div>
   );
 };
