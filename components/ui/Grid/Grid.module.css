@@ -2,27 +2,23 @@
   @apply grid gap-0 grid-cols-1;
 
   @screen lg {
-   @apply grid-cols-3 grid-rows-2;
-  }
-
-  & > * {
-    @apply row-span-1 overflow-hidden;
-    max-height: 800px;
-
-    @screen lg {
-      height: inherit;
-    }
+    @apply grid-cols-3 grid-rows-2;
   }
 }
 
-.layoutA {
-  /* 1, 7, 13 */
-  /* 5, 11, 17 */
-  & > *:nth-child(6n + 1),
-  & > *:nth-child(6n + 5) {
-    @screen lg {
-      @apply col-span-2 row-span-2;
-    }
+.root > * {
+  @apply row-span-1 overflow-hidden;
+  max-height: 800px;
+
+  @screen lg {
+    height: inherit;
+  }
+}
+
+.layoutA > *:nth-child(6n + 1),
+.layoutA > *:nth-child(6n + 5) {
+  @screen lg {
+    @apply col-span-2 row-span-2;
   }
 }
 
