@@ -1,4 +1,5 @@
 import { FC, ReactNode } from 'react';
+import Ticker from 'react-ticker';
 
 import s from './Marquee.module.css';
 
@@ -9,7 +10,9 @@ interface Props {
 const Marquee: FC<Props> = ({ children }) => {
   return (
     <div className={s.root}>
-      <div className={s.container}>{children}</div>
+      <Ticker offset={80}>
+        {() => <div className={s.container}>{children}</div>}
+      </Ticker>
     </div>
   );
 };
