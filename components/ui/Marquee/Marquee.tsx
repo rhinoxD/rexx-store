@@ -16,8 +16,9 @@ const Marquee: FC<Props> = ({ children, variant = 'primary' }) => {
   return (
     <div className={rootClassName}>
       <Ticker offset={80}>
-        {() => <div className={s.container}>{children}</div>}
+        {({ index }) => <div className={s.container}>{children}</div>}
       </Ticker>
+      {/* <div className={s.container}>{children}</div> */}
     </div>
   );
 };

@@ -1,11 +1,32 @@
 import { FC } from 'react';
+import Link from 'next/link';
+
 import { Container } from '@components/ui';
+import s from './Navbar.module.css';
 
 const Navbar: FC = () => {
   return (
     <Container>
-      <div className='flex flex-row md:py-6'>
-        <h1>NEXT_STORE</h1>
+      <div className={s.root}>
+        <div className='flex flex-1 items-center'>
+          <Link href='' className={s.logo}>
+            REXX-STORE
+          </Link>
+          <nav className='ml-6 space-x-6'>
+            <Link href='/' className={s.link}>
+              All
+            </Link>
+            <Link href='/' className={s.link}>
+              Clothes
+            </Link>
+            <Link href='/' className={s.link}>
+              Accessories
+            </Link>
+            <Link href='/' className={s.link}>
+              Shoes
+            </Link>
+          </nav>
+        </div>
       </div>
     </Container>
   );
