@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 
 import { Container } from '@components/ui';
+import { Usernav } from '@components/common';
 import s from './Navbar.module.css';
 
 const Navbar: FC = () => {
@@ -26,6 +27,9 @@ const Navbar: FC = () => {
               Shoes
             </Link>
           </nav>
+          <div className='flex flex-1 justify-end space-x-8'>
+            <Usernav />
+          </div>
         </div>
       </div>
     </Container>
