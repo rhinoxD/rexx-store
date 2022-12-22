@@ -12,6 +12,7 @@ interface Props {
 
 const Layout: FC<Props> = ({ children }) => {
   const { isSidebarOpen, closeSidebar } = useUI();
+  console.log('Re-rendering LAYOUT');
   return (
     <div className={s.root}>
       <Navbar />
