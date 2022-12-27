@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { FC } from 'react'
 import s from './ProductView.module.css'
-import { Container } from '@components/ui'
+import { Container, Button } from '@components/ui'
 import Image from 'next/image'
 import { Product } from '@common/types/product'
 import ProductSlider from '../ProductSlider'
@@ -14,7 +14,7 @@ const ProductView: FC<Props> = ({ product }) => {
   return (
     <Container>
       <div className={cn(s.root, 'fit')}>
-        <div className={cn(s.productDisplay, 'fit')}>
+        <div className={cn(s.productDisplay, 'fit', 'mb-5')}>
           <div className={s.nameBox}>
             <h1 className={s.name}>{product.name}</h1>
             <div className={s.price}>
@@ -48,13 +48,7 @@ const ProductView: FC<Props> = ({ product }) => {
             </div>
           </section>
           <div>
-            <button
-              onClick={() => {}}
-              aria-label='Add to Cart'
-              className={s.button}
-            >
-              Add to Cart
-            </button>
+            <Button>Add to Cart</Button>
           </div>
         </div>
       </div>
