@@ -1,4 +1,6 @@
 import { FC, ReactNode, Children, isValidElement, cloneElement } from 'react'
+import { useKeenSlider } from 'keen-slider/react'
+
 import s from './ProductSlider.module.css'
 
 type Props = {
@@ -6,19 +8,41 @@ type Props = {
 }
 
 const ProductSlider: FC<Props> = ({ children }) => {
+  const [sliderRef, _] = useKeenSlider(
+    {
+      loop: true,
+      slideChanged(s) {
+        console.log('slide changed')
+      },
+    },
+    [
+      // add plugins here
+    ]
+  )
   return (
     <div className={s.root}>
-      <div className='keen-slider h-full transition-opacity'>
+      <div
+        ref={sliderRef as any}
+        className='keen-slider h-full transition-opacity'
+      >
         {Children.map(children, (child) => {
           if (isValidElement(child)) {
             return {
               ...child,
               props: {
                 ...child.props,
-                className: 'keen-slider__slide',
+                className: `${
+                  child.props.className ? `${child.props.className}` : ''
+                } keen-slider__slide`,
               },
             }
-            // return cloneElement(child, { className: 'keen-slider__slide' })
+            // return cloneElement(child, {
+            //   className: `${
+            //     child.props.className
+            //       ? `${child.props.className} keen-slider__slide`
+            //       : ''
+            //   }`,
+            // })
           }
           return child
         })}
