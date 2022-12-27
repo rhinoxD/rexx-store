@@ -1,13 +1,15 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, ButtonHTMLAttributes } from 'react'
+import cn from 'classnames'
+
 import s from './Button.module.css'
 
-interface Props {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode | ReactNode[]
 }
 
-const Button: FC<Props> = ({ children }) => {
+const Button: FC<Props> = ({ children, className, ...rest }) => {
   return (
-    <button className={s.root} type='button'>
+    <button className={cn(s.root, className)} type='button' {...rest}>
       {children}
     </button>
   )
