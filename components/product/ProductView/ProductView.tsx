@@ -1,8 +1,9 @@
+import { FC, useState } from 'react'
+import Image from 'next/image'
 import cn from 'classnames'
-import { FC } from 'react'
+
 import s from './ProductView.module.css'
 import { Container, Button } from '@components/ui'
-import Image from 'next/image'
 import { Product } from '@common/types/product'
 import { ProductSlider, Swatch } from '@components/product'
 
@@ -11,6 +12,9 @@ interface Props {
 }
 
 const ProductView: FC<Props> = ({ product }) => {
+  const [choices, setChoices] = useState({})
+
+  console.log(choices)
   return (
     <Container>
       <div className={cn(s.root, 'fit')}>
@@ -49,6 +53,13 @@ const ProductView: FC<Props> = ({ product }) => {
                       label={optVal.label}
                       color={optVal.hexColor}
                       variant={option.displayName}
+                      onClick={() => {
+                        setChoices({
+                          ...choices,
+                          [option.displayName.toLowerCase()]:
+                            optVal.label.toLowerCase(),
+                        })
+                      }}
                     />
                   ))}
                 </div>
