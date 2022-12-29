@@ -6,23 +6,13 @@ export type Choices = {
   [P in AvailableChoices]: string
 }
 
-export function getVariant(product: Product, choices: Choices) {
-  console.log(product)
-
-  const variant = product.variants.find((variant) => {
-    const isMatchingChoice = variant.options.every((variantOption) => {
+export const getVariant = (product: Product, choices: Choices) =>
+  product.variants.find((variant) =>
+    variant.options.every((variantOption) => {
       const optionName = variantOption.displayName.toLocaleLowerCase()
-      if (optionName in choices) {
-        if (choices[optionName] === variantOption.values[0].label) {
-          return true
-        }
-      }
-
-      return false
+      return (
+        optionName in choices &&
+        choices[optionName] === variantOption.values[0].label
+      )
     })
-
-    return isMatchingChoice
-  })
-
-  return variant
-}
+  )
