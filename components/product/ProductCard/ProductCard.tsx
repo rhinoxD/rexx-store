@@ -1,15 +1,15 @@
-import { Product } from '@common/types/product';
-import { FC } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import s from './ProductCard.module.css';
+import { Product } from '@common/types/product'
+import { FC } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import s from './ProductCard.module.css'
 
 interface Props {
-  product: Product;
-  variant?: 'simple' | 'slim';
+  product: Product
+  variant?: 'simple' | 'slim'
 }
 
-const placeholderImage = '/product-image-placeholder.svg';
+const placeholderImage = '/product-image-placeholder.svg'
 
 const ProductCard: FC<Props> = ({ product, variant = 'simple' }) => {
   return (
@@ -58,7 +58,7 @@ const ProductCard: FC<Props> = ({ product, variant = 'simple' }) => {
         </>
       )}
     </Link>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

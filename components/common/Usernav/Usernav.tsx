@@ -1,12 +1,12 @@
-import { FC } from 'react';
-import Link from 'next/link';
+import { FC } from 'react'
+import Link from 'next/link'
 
-import { Bag as Cart, Heart } from '@components/icons';
-import { useUI } from '@components/ui/context';
-import s from './Usernav.module.css';
+import { Bag as Cart, Heart } from '@components/icons'
+import { useUI } from '@components/ui/context'
+import s from './Usernav.module.css'
 
 const Usernav: FC = () => {
-  const { openSidebar } = useUI();
+  const { openSidebar } = useUI()
   return (
     <nav>
       <ul className={s.list}>
@@ -20,7 +20,7 @@ const Usernav: FC = () => {
         </li>
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Usernav;
+export default Usernav

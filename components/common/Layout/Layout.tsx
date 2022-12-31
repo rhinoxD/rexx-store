@@ -1,18 +1,18 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react'
 
-import { Footer, Navbar } from '@components/common';
-import s from './Layout.module.css';
-import { CartSidebar } from '@components/cart';
-import { Sidebar } from '@components/ui';
-import { useUI } from '@components/ui/context';
-import { ApiProvider } from '@framework';
+import { Footer, Navbar } from '@components/common'
+import s from './Layout.module.css'
+import { CartSidebar } from '@components/cart'
+import { Sidebar } from '@components/ui'
+import { useUI } from '@components/ui/context'
+import { ApiProvider } from '@framework'
 
 interface Props {
-  children?: ReactNode;
+  children?: ReactNode
 }
 
 const Layout: FC<Props> = ({ children }) => {
-  const { isSidebarOpen, closeSidebar } = useUI();
+  const { isSidebarOpen, closeSidebar } = useUI()
   return (
     <ApiProvider>
       <div className={s.root}>
@@ -24,7 +24,7 @@ const Layout: FC<Props> = ({ children }) => {
         <Footer />
       </div>
     </ApiProvider>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

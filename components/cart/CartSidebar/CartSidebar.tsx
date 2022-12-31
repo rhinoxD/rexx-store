@@ -1,15 +1,15 @@
-import { FC } from 'react';
-import { Bag, Cross } from '@components/icons';
-import cn from 'classnames';
-import { useUI } from '@components/ui/context';
+import { FC } from 'react'
+import { Bag, Cross } from '@components/icons'
+import cn from 'classnames'
+import { useUI } from '@components/ui/context'
 
 const CartSidebar: FC = () => {
-  const isEmpty = true;
-  const { closeSidebar } = useUI();
+  const isEmpty = true
+  const { closeSidebar } = useUI()
 
   const rootClass = cn('h-full flex flex-col', {
     'bg-secondary text-secondary': isEmpty,
-  });
+  })
 
   return (
     <div className={rootClass}>
@@ -71,7 +71,7 @@ const CartSidebar: FC = () => {
             </div>
             <button
               onClick={() => {
-                alert('Going to checkout!');
+                alert('Going to checkout!')
               }}
             >
               Proceed to Checkout
@@ -80,7 +80,7 @@ const CartSidebar: FC = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CartSidebar;
+export default CartSidebar

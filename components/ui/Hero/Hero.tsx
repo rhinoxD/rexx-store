@@ -1,12 +1,12 @@
-import { FC } from 'react';
-import Link from 'next/link';
+import { FC } from 'react'
+import Link from 'next/link'
 
-import s from './Hero.module.css';
-import { Container } from '@components/ui';
+import s from './Hero.module.css'
+import { Container } from '@components/ui'
 
 interface Props {
-  headline: string;
-  description: string;
+  headline: string
+  description: string
 }
 
 const Hero: FC<Props> = ({ headline, description }) => {
@@ -24,7 +24,7 @@ const Hero: FC<Props> = ({ headline, description }) => {
         </div>
       </Container>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

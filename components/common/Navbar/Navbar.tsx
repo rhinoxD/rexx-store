@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import Link from 'next/link';
+import { FC } from 'react'
+import Link from 'next/link'
 
-import { Container } from '@components/ui';
-import { Usernav } from '@components/common';
-import s from './Navbar.module.css';
+import { Container } from '@components/ui'
+import { Usernav } from '@components/common'
+import s from './Navbar.module.css'
 
 const Navbar: FC = () => {
   return (
@@ -33,7 +33,7 @@ const Navbar: FC = () => {
         </div>
       </div>
     </Container>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
