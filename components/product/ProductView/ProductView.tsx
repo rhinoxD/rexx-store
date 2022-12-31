@@ -20,7 +20,6 @@ const ProductView: FC<Props> = ({ product }) => {
   const addItem = useAddItem()
 
   const variant = getVariant(product, choices)
-  console.log(variant)
 
   const addToCart = () => {
     try {
