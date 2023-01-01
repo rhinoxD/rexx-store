@@ -63,6 +63,6 @@ query productByHandle($slug: String) {
     }
   }
 }
-`;
+`
 
-export default getProductQuery;
+export default getProductQuery

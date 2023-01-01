@@ -1,21 +1,21 @@
-import type { InferGetStaticPropsType } from 'next';
+import type { InferGetStaticPropsType } from 'next'
 
-import { getAllProducts } from '@framework/product';
-import { getConfig } from '@framework/api/config';
-import { Layout } from '@components/common';
-import { ProductCard } from '@components/product';
-import { Grid, Hero, Marquee } from '@components/ui';
+import { getAllProducts } from '@framework/product'
+import { getConfig } from '@framework/api/config'
+import { Layout } from '@components/common'
+import { ProductCard } from '@components/product'
+import { Grid, Hero, Marquee } from '@components/ui'
 
 export async function getStaticProps() {
-  const config = getConfig();
-  const products = await getAllProducts(config);
+  const config = getConfig()
+  const products = await getAllProducts(config)
 
   return {
     props: {
       products,
     },
     revalidate: 4 * 60 * 60,
-  };
+  }
 }
 
 export default function Home({
@@ -48,7 +48,7 @@ export default function Home({
         ))}
       </Marquee>
     </>
-  );
+  )
 }
 
-Home.Layout = Layout;
+Home.Layout = Layout

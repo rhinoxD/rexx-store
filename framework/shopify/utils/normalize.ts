@@ -1,4 +1,4 @@
-import { Product } from '@common/types/product';
+import { Product } from '@common/types/product'
 import {
   ImageEdge,
   MoneyV2,
@@ -6,18 +6,18 @@ import {
   ProductOption,
   ProductVariantConnection,
   SelectedOption,
-} from '../schema';
+} from '../schema'
 
 const normalizeProductImages = ({ edges }: { edges: Array<ImageEdge> }) =>
   edges.map(({ node: { originalSrc: url, ...rest } }) => ({
     url: `/images/${url}`,
     ...rest,
-  }));
+  }))
 
 const normalizeProductPrice = ({ currencyCode, amount }: MoneyV2) => ({
   value: +amount,
   currencyCode,
-});
+})
 
 const normalizeProductOption = ({
   id,
@@ -30,25 +30,25 @@ const normalizeProductOption = ({
     values: values.map((value) => {
       let output: any = {
         label: value,
-      };
+      }
 
       if (displayName.match(/colou?r/gi)) {
         output = {
           ...output,
           hexColor: value,
-        };
+        }
       }
 
-      return output;
+      return output
     }),
-  };
+  }
 
-  return normalized;
-};
+  return normalized
+}
 
 const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
   return edges.map(({ node }) => {
-    const { id, selectedOptions, sku, title, priceV2, compareAtPriceV2 } = node;
+    const { id, selectedOptions, sku, title, priceV2, compareAtPriceV2 } = node
 
     return {
       id,
@@ -62,13 +62,13 @@ const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
           id,
           name,
           values: [value],
-        });
+        })
 
-        return option;
+        return option
       }),
-    };
-  });
-};
+    }
+  })
+}
 
 export function normalizeProduct(productNode: ShopifyProduct): Product {
   const {
@@ -82,7 +82,7 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
     options,
     variants,
     ...rest
-  } = productNode;
+  } = productNode
 
   const product = {
     id,
@@ -100,7 +100,7 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
       : [],
     variants: variants ? null : [],
     ...rest,
-  };
+  }
 
-  return product;
+  return product
 }

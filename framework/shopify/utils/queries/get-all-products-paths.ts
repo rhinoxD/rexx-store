@@ -8,6 +8,6 @@ const getAllProductsPathsQuery = `
       }
     }
   }
-`;
+`
 
-export default getAllProductsPathsQuery;
+export default getAllProductsPathsQuery

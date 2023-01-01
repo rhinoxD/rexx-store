@@ -1,4 +1,4 @@
-import { ApiFetcherOptions, ApiFetcherResults } from '@common/types/api';
+import { ApiFetcherOptions, ApiFetcherResults } from '@common/types/api'
 
 const fetchApi = async <T>({
   url,
@@ -14,18 +14,18 @@ const fetchApi = async <T>({
       query,
       variables,
     }),
-  });
+  })
 
-  const { data, errors } = await res.json();
+  const { data, errors } = await res.json()
   // ?? is checking if the left hand expression is null
   // or undefined -> if it is go with the right expression
   // || is checking if the left hand expression is null,
   // undefined, "", 0, false
   if (errors) {
-    throw new Error(errors[0].message ?? errors.message);
+    throw new Error(errors[0].message ?? errors.message)
   }
 
-  return { data };
-};
+  return { data }
+}
 
-export default fetchApi;
+export default fetchApi
