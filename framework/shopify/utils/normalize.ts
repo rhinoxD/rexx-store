@@ -98,7 +98,7 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
           .filter((o) => o.name !== 'Title')
           .map((o) => normalizeProductOption(o))
       : [],
-    variants: variants ? null : [],
+    variants: variants ? normalizeProductVariants(variants) : [],
     ...rest,
   }
 
