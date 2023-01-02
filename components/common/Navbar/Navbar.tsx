@@ -10,7 +10,7 @@ const Navbar: FC = () => {
     <Container>
       <div className={s.root}>
         <div className='flex flex-1 items-center'>
-          <Link href='' className={s.logo}>
+          <Link href='/' className={s.logo}>
             REXX-STORE
           </Link>
           <nav className='ml-6 space-x-6'>
