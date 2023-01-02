@@ -12,8 +12,8 @@ export const useMutationHook = (hook: MutationHook) => {
     fetch: (input: any) => {
       return hook.fetcher({
         input,
-        fetch: (input: any) => {
-          return JSON.stringify(input) + '_MODIFIED'
+        fetch: async (input: any) => {
+          return { data: JSON.stringify(input) + '_MODIFIED' }
         },
       })
     },
