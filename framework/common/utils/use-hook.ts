@@ -29,7 +29,8 @@ const useData = (hook: any, fetcher: ApiFetcher) => {
     try {
       return await hook.fetcher({
         fetch: fetcher,
-        options: hook.fetcherOptions,
+        options: hook.fetchOptions,
+        input: {},
       })
     } catch (error) {
       throw error
@@ -46,7 +47,7 @@ const useData = (hook: any, fetcher: ApiFetcher) => {
 // cache data first if possible
 export const useSWRHook = (hook: any) => {
   const { fetcher } = useApiProvider()
-  
+
   return hook.useHook({
     useData() {
       const data = useData(hook, fetcher)
