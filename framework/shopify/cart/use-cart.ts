@@ -20,11 +20,16 @@ export const handler = {
       checkout = await createCheckout(fetch)
     }
 
+    // Normalize checkout!
     return checkout
   },
   useHook: ({ useData }: any) => {
-    const data = useData()
-    useMemo(() => {
+    const data = useData({
+      swrOptions: {
+        revalidateOnFocus: false,
+      },
+    })
+    return useMemo(() => {
       return data
     }, [data])
   },
