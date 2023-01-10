@@ -52,7 +52,7 @@ const ProductView: FC<Props> = ({ product }) => {
                 <Image
                   className={s.img}
                   src={image.url}
-                  alt={image.alt}
+                  alt={image.alt ?? 'Product Image'}
                   width={1050}
                   height={1050}
                   quality='85'
