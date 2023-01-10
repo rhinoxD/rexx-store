@@ -44,13 +44,13 @@ export const handler: SWRHook<UseCartHookDescriptor> = {
   useHook:
     ({ useData }) =>
     () => {
-      const data = useData({
+      const result = useData({
         swrOptions: {
           revalidateOnFocus: false,
         },
       })
       return useMemo(() => {
-        return data
-      }, [data])
+        return { ...result, isEmpty: (result.data?.lineItems.length ?? 0) <= 0 }
+      }, [result])
     },
 }
