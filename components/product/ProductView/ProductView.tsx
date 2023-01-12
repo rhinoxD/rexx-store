@@ -31,7 +31,6 @@ const ProductView: FC<Props> = ({ product }) => {
       }
 
       const output = await addItem(item)
-      alert(JSON.stringify(output))
       openSidebar()
     } catch {}
   }
