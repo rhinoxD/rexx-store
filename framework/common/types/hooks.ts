@@ -6,6 +6,7 @@ export interface ApiHooks {
     useAddItem: MutationHook
     useCart: any
     useRemoveItem: MutationHook
+    useUpdateItem: MutationHook
   }
 }
 
