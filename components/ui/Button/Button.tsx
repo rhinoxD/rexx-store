@@ -2,6 +2,7 @@ import { FC, ReactNode, ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
 
 import s from './Button.module.css'
+import LoadingDots from '../LoadingDots'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode | ReactNode[]
@@ -20,7 +21,11 @@ const Button: FC<Props> = ({
   return (
     <button className={rootClassName} type='button' {...rest}>
       {children}
-      {isLoading && <div>Loading...</div>}
+      {isLoading && (
+        <i className='pl-2 m-0 flex'>
+          <LoadingDots />
+        </i>
+      )}
     </button>
   )
 }
