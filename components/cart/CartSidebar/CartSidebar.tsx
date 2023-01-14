@@ -86,11 +86,7 @@ const CartSidebar: FC = () => {
                 </span>
               </div>
             </div>
-            <Button
-              onClick={() => {
-                alert('Going to checkout!')
-              }}
-            >
+            <Button Component='a' href='/'>
               Proceed to Checkout
             </Button>
           </div>
