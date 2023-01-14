@@ -5,12 +5,22 @@ import s from './Button.module.css'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode | ReactNode[]
+  isLoading?: boolean
 }
 
-const Button: FC<Props> = ({ children, className, ...rest }) => {
+const Button: FC<Props> = ({
+  children,
+  className,
+  isLoading = false,
+  ...rest
+}) => {
+  const rootClassName = cn(s.root, className, {
+    [s.loading]: isLoading,
+  })
   return (
-    <button className={cn(s.root, className)} type='button' {...rest}>
+    <button className={rootClassName} type='button' {...rest}>
       {children}
+      {isLoading && <div>Loading...</div>}
     </button>
   )
 }
