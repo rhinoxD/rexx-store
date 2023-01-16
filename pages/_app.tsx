@@ -4,11 +4,7 @@ import { AppProps } from 'next/app'
 import { FC, ReactNode } from 'react'
 import { UIProvider } from '@components/ui/context'
 
-interface Props {
-  children?: ReactNode
-}
-
-const Noop: FC<Props> = ({ children }) => <>{children}</>
+const Noop: FC<any> = ({ children }) => <>{children}</>
 
 const App = ({
   Component,
