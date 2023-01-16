@@ -4,12 +4,16 @@ import { AppProps } from 'next/app'
 import { FC, ReactNode } from 'react'
 import { UIProvider } from '@components/ui/context'
 
-const Noop: FC<any> = ({ children }) => <>{children}</>
+interface Props {
+  children?: ReactNode
+}
+
+const Noop: FC<Props> = ({ children }) => <>{children}</>
 
 const App = ({
   Component,
   pageProps,
-}: AppProps & { Component: { Layout: FC } }) => {
+}: AppProps & { Component: { Layout: FC<any> } }) => {
   const Layout = Component.Layout ?? Noop
 
   return (
